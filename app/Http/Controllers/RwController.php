@@ -44,6 +44,20 @@ class RwController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+
+            'id_kel' => 'required',
+
+            'nama' => 'required',
+
+
+        ], [
+            'id_kel.required' => 'Kelurahan is required',
+
+            'nama.required' => 'Rw is required'
+
+        ]);
+
         $rw = new Rw();
         $rw->id_kel = $request->id_kel;
         $rw->nama =$request->nama;

@@ -3,7 +3,7 @@
 
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-11">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
                         @if (session('message'))
@@ -39,10 +39,10 @@
                                         <tr>
                                             <td scope="row">{{$no++}}</td>
                                             <td style="text-align: center">{{$data->rw->nama}}</td>
-                                            <td style="text-align: center">{{$data->jumlah_positif}}</td>
-                                            <td style="text-align: center">{{$data->jumlah_sembuh}}</td>
-                                            <td style="text-align: center">{{$data->jumlah_meninggal}}</td>
-                                            <td style="text-align: center">{{$data->tanggal}}</td>
+                                            <td style="text-align: center">{{ number_format ($data->jumlah_positif)}}</td>
+                                            <td style="text-align: center">{{number_format($data->jumlah_sembuh)}}</td>
+                                            <td style="text-align: center">{{number_format($data->jumlah_meninggal)}}</td>
+                                            <td>{{$data->tanggal}}</td>
                                             <td>
                                                 <form action="{{route('kasus2.destroy',$data->id)}}" method="post">
                                                     @csrf

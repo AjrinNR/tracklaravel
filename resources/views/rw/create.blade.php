@@ -8,11 +8,20 @@
                         Tambah data RW
                     </div>
                     <div class="card-body ">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form action="{{route('rw.store')}}" method="post">
                             @csrf
                             <div class="mb-3">
                                 <label for="">Kelurahan</label>
-                                <select name="id_kel" class="form-control" required>
+                                <select name="id_kel" class="form-control" >
                                     @foreach ($kel as $data)
                                         <option value="{{$data->id}}">{{$data->nama_kelurahan}}</option>
                                     @endforeach
@@ -20,7 +29,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="">RW</label>
-                                <input type="text" name="nama" class="form-control"required>
+                                <input type="text" name="nama" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-outline-dark">Simpan</button>

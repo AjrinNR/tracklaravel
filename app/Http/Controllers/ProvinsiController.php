@@ -42,6 +42,22 @@ class ProvinsiController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+
+            'kode_prov' => 'required|int|unique:provinsis',
+
+            'nama_prov' => 'required|unique:provinsis',
+
+
+        ], [
+
+            'kode_prov.required' => 'Kode is required',
+
+            'nama_prov.required' => 'Provinsi is required'
+
+        ]);
+
+
         $prov = new Provinsi();
         $prov->kode_prov = $request->kode_prov;
         $prov->nama_prov = $request->nama_prov;

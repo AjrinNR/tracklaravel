@@ -8,11 +8,20 @@
                         Tambah data Kecamatan
                     </div>
                     <div class="card-body ">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form action="{{route('kasus2.store')}}" method="post">
                             @csrf
                             <div class="mb-3">
                                 <label for="">RW</label>
-                                <select name="id_rw" class="form-control" required>
+                                <select name="id_rw" class="form-control" >
                                     @foreach ($rw as $data)
                                         <option value="{{$data->id}}">{{$data->nama}}</option>
                                     @endforeach
@@ -20,19 +29,19 @@
                             </div>
                             <div class="mb-3">
                                 <label for="">Jumlah Positif</label>
-                                <input type="text" name="jumlah_positif" class="form-control"required>
+                                <input type="text" name="jumlah_positif" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="">Jumlah Sembuh</label>
-                                <input type="text" name="jumlah_sembuh" class="form-control"required>
+                                <input type="text" name="jumlah_sembuh" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="">Jumlah Meninggal</label>
-                                <input type="text" name="jumlah_meninggal" class="form-control"required>
+                                <input type="text" name="jumlah_meninggal" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label for="">Jumlah Sembuh</label>
-                                <input type="date" name="tanggal" class="form-control"required>
+                                <input type="date" name="tanggal" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-outline-dark">Simpan</button>
