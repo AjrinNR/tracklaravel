@@ -1,11 +1,12 @@
 @extends('layouts.admin')
 @section('content')
+@livewireStyles
     <div class = "container">
         <div class ="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
-                        Tambah data Kecamatan
+                        Tambah data Kasus
                     </div>
                     <div class="card-body ">
                         @if (count($errors) > 0)
@@ -19,13 +20,8 @@
                         @endif
                         <form action="{{route('kasus2.store')}}" method="post">
                             @csrf
-                            <div class="mb-3">
-                                <label for="">RW</label>
-                                <select name="id_rw" class="form-control" >
-                                    @foreach ($rw as $data)
-                                        <option value="{{$data->id}}">{{$data->nama}}</option>
-                                    @endforeach
-                                </select>
+                            <div class="flex flex-col justify-around h-full">
+                                @livewire('dropdowns')
                             </div>
                             <div class="mb-3">
                                 <label for="">Jumlah Positif</label>
@@ -45,7 +41,7 @@
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-outline-dark">Simpan</button>
-                                <button type="submit" class="btn btn-outline-success"><a href="{{ url()->previous() }}"> Kembali </a></button>
+                               <a href="{{ url()->previous() }}" class="btn btn-outline-dark"> Kembali </a>
                             </div>
                         </form>
                     </div>
@@ -53,4 +49,5 @@
             </div>
         </div>
     </div>
+@livewireScripts
 @endsection

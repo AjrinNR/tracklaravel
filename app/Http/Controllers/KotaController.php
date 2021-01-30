@@ -48,7 +48,6 @@ class KotaController extends Controller
     {
         $request->validate([
 
-            'id_prov' => 'required',
 
             'kode_kota' => 'required|int|unique:kotas',
 
@@ -56,7 +55,6 @@ class KotaController extends Controller
 
 
         ], [
-            'id_prov.required' => 'Provinsi is required',
 
             'kode_kota.required' => 'Kode is required',
 

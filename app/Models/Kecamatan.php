@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kecamatan extends Model
 {
+    use HasFactory;
     protected $fillable =['id_kota','kode_kec','nama_kec'];
     public $timestamps = true;
 

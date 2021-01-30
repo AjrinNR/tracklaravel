@@ -8,6 +8,8 @@ use Illuminate\Support\Carbon;
 
 class Kasus2 extends Model
 {
+    use HasFactory;
+    
     protected $fillable =['id_rw','jumlah_positif','jumlah_sembuh','jumlah_meninggal','tanggal'];
     public $timestamps = true;
 

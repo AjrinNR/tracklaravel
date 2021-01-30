@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rw extends Model
 {
+    use HasFactory;
+
     protected $fillable =['id_kel','nama'];
     public $timestamps = true;
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Provinsi extends Model
 {
+    use HasFactory;
     protected $fillable =['kode_prov','nama_prov'];
     public $timestamps = true;
 

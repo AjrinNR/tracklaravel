@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kota extends Model
 {
+    use HasFactory;
     protected $fillable =['id_prov','kode_kota','nama_kota'];
     public $timestamps = true;
 

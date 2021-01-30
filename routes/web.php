@@ -40,3 +40,6 @@ Route::resource('kasus', KasusController::class);
 Route::get('utama', function(){
     return view('utama');
 });
+Route::get('coba', function(){
+    return view('coba');
+});

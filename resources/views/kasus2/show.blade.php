@@ -12,8 +12,28 @@
                         <input type="hidden" name="_method" value="PUT">
                             @csrf
                             <div class="mb-3">
-                                <label for="">RW</label>
-                                <input type="text" name="id_rw" value="{{$kasus2->rw->nama}}" class="form-control" readonly>
+                                <label for="">Provinsi</label>
+                                <input type="text" name="nama_prov" value="{{$kasus2->rw->kelurahan->
+                                kecamatan->kota->provinsi->nama_prov}}" class="form-control"readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Kota</label>
+                                <input type="text" name="nama_kota" value="{{$kasus2->rw->kelurahan->
+                                kecamatan->kota->nama_kota}}" class="form-control"readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Kecamatan</label>
+                                <input type="text" name="nama_kec" value="{{$kasus2->rw->kelurahan->
+                                kecamatan->nama_kec}}" class="form-control"readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Kelurhan</label>
+                                <input type="text" name="nama_kelurahan" value="{{$kasus2->rw->kelurahan->
+                                nama_kelurahan}}" class="form-control"readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Rw</label>
+                                <input type="text" name="nama" value="{{$kasus2->rw->nama}}" class="form-control"readonly>
                             </div>
                             <div class="mb-3">
                                 <label for="">Jumlah Positif</label>
