@@ -49,8 +49,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="">Tanggal</label>
-                                <input type="date" name="tanggal" value="{{$kasus2->tanggal}}" onchange= "invoicedue(event);"  
-                                class="form-control"required>
+                                <input type="date" name="tanggal" value="{{$kasus2->tanggal}}"   
+                                class="form-control">
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-dark">Simpan</button>

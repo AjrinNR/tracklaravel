@@ -13,10 +13,6 @@ class Kasus2 extends Model
     protected $fillable =['id_rw','jumlah_positif','jumlah_sembuh','jumlah_meninggal','tanggal'];
     public $timestamps = true;
 
-    public function getTanggalAttribute(){
-        return carbon::parse($this->attributes['tanggal'])
-            ->translatedFormat('l, d F Y');
-    }
 
     public function rw(){
         return $this->belongsTo('App\Models\Rw','id_rw');

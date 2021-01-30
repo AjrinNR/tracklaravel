@@ -8,6 +8,7 @@
             @endforeach
         </select>
     </div>
+    @if(!is_null($selectedState))
     <div class="mb-8">
         <label class="inline-block w-32 font-bold">City:</label>
           <select name="id_kota" wire:model="selectedCity" 
@@ -18,6 +19,8 @@
             @endforeach
         </select>
     </div>
+    @endif
+    @if(!is_null($selectedCity))
     <div class="mb-8">
         <label class="inline-block w-32 font-bold">Kecamatan:</label>
           <select name="id_kec" wire:model="selectedKecamatan" 
@@ -28,6 +31,8 @@
             @endforeach
         </select>
     </div>
+    @endif
+    @if(!is_null($selectedKecamatan))
     <div class="mb-8">
         <label class="inline-block w-32 font-bold">Kelurahan:</label>
           <select name="id_kel" wire:model="selectedKelurahan" 
@@ -38,6 +43,8 @@
             @endforeach
         </select>
     </div>
+    @endif
+    @if(!is_null($selectedKelurahan))
     <div class="mb-8">
         <label class="inline-block w-32 font-bold">RW:</label>
           <select name="id_rw" wire:model="selectedRw" 
@@ -48,5 +55,5 @@
             @endforeach
         </select>
     </div>
-
+    @endif
 </div>

@@ -21,6 +21,7 @@ class ProvinsiController extends Controller
     public function index()
     {
         $prov = Provinsi::all();
+        $prov = Provinsi::orderBy('nama_prov','asc')->get();
         return view('provinsi.index', compact('prov'));
     }
 
