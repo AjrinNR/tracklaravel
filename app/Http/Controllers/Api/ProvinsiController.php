@@ -74,8 +74,12 @@ class ProvinsiController extends Controller
             ];
             return response()->json($res,200);
         }else {
-            return response()->json($res,200);
-            
+            return response()->json([
+                'success' => false,
+                'message' => 'data Tidak Ditemukan!',
+                'data'    => ''
+            ], 404);
+
         }
        
     }

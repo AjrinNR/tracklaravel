@@ -46,13 +46,11 @@ class RwController extends Controller
     {
         $request->validate([
 
-            'id_kel' => 'required',
 
             'nama' => 'required',
 
 
         ], [
-            'id_kel.required' => 'Kelurahan is required',
 
             'nama.required' => 'Rw is required'
 

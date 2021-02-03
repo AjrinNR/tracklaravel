@@ -47,7 +47,6 @@ class KecamatanController extends Controller
     {
         $request->validate([
 
-            'id_kota' => 'required',
 
             'kode_kec' => 'required|int|unique:kecamatans',
 
@@ -55,7 +54,6 @@ class KecamatanController extends Controller
 
 
         ], [
-            'id_kota.required' => 'Kota is required',
 
             'kode_kec.required' => 'Kode is required',
 

@@ -46,13 +46,11 @@ class KelurahanController extends Controller
     {
         $request->validate([
 
-            'id_kec' => 'required',
 
             'nama_kelurahan' => 'required|unique:kelurahans',
 
 
         ], [
-            'id_kec.required' => 'Kecamatan is required',
 
             'nama_kelurahan.required' => 'Kelurahan is required'
 
