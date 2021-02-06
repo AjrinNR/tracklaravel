@@ -18,7 +18,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="datatable">
                                 <thead>
                                     <tr>
                                         <th scope="col">Nomor</th>

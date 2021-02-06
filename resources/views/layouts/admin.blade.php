@@ -26,6 +26,9 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Datatables -->
+  <link rel="stylesheet" href="{{asset('assets/plugins/datatables/datatable.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -83,6 +86,16 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- DataTables -->
+<script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}" ></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+@yield('js')
+    <!-- Page specific script -->
+    <script>
+            $(document).ready( function () {
+                $('#datatable').DataTable();
+            } );
+    </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->

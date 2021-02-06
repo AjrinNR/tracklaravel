@@ -26,8 +26,11 @@ use App\Http\Controllers\KasusController;
 
 
 Auth::routes();
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('provinsi', ProvinsiController::class);
 Route::resource('kota', KotaController::class);

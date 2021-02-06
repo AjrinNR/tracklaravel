@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\HTTP;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Provinsi;
@@ -239,6 +240,28 @@ class ApiController extends Controller
             'Message'=>'Data ditampilkan',
         ];
         return response()->json($res,200);
+    }
+
+    public function global(){
+        $url= Http::get('https://api.kawalcorona.com/')->json();
+        $data = [];
+        foreach ($url as $key => $value) {
+            $ul = $value['attributes'];
+            $res =[
+                'Id'=>$ul['OBJECTID'],
+                'Country'=>$ul['Country_Region'],
+                'Confirmed'=>$ul['Confirmed'],
+                'Deaths'=>$ul['Deaths'],
+                'Recovered'=>$ul['Recovered'],
+            ];
+            array_push($data,$res);
+        }
+        $response =[
+            'success'=> true,
+            'Country'=>$data,
+            'message'=>'Data berhasil ditampilkan',
+        ];
+        return response()->json($response,200);
     }
 
     public function create()
