@@ -9,6 +9,8 @@ use App\Http\Controllers\RwController;
 use App\Http\Controllers\Kasus2Controller;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\KasusController;
+use App\Http\Controllers\HumController;
+
 
 
 /*
@@ -26,12 +28,11 @@ use App\Http\Controllers\KasusController;
 
 
 Auth::routes();
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('/', HumController::class);
 Route::resource('provinsi', ProvinsiController::class);
 Route::resource('kota', KotaController::class);
 Route::resource('kecamatan', KecamatanController::class);

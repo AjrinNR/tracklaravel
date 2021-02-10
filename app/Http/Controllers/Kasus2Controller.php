@@ -21,7 +21,7 @@ class Kasus2Controller extends Controller
 
     public function index()
     {
-        $kasus2 = Kasus2::with('rw.kelurahan.kecamatan.kota.provinsi')->orderBy('id','DESC')->get();
+        $kasus2 = Kasus2::with('rw')->get();
         return view('kasus2.index',compact('kasus2'));
     }
 
@@ -114,6 +114,7 @@ class Kasus2Controller extends Controller
     public function update(Request $request, $id)
     {
         $kasus2 = Kasus2::findOrFail($id);
+        $kasus2->id_rw = $request->id_rw;
         $kasus2->jumlah_positif = $request->jumlah_positif;
         $kasus2->jumlah_sembuh = $request->jumlah_sembuh;
         $kasus2->jumlah_meninggal = $request->jumlah_meninggal;

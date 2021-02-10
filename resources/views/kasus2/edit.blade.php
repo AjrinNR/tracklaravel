@@ -27,7 +27,7 @@
                                 kecamatan->nama_kec}}" class="form-control"readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="">Kelurhan</label>
+                                <label for="">Kelurahan</label>
                                 <input type="text" name="nama_kelurahan" value="{{$kasus2->rw->kelurahan->
                                 nama_kelurahan}}" class="form-control"readonly>
                             </div>
