@@ -124,7 +124,7 @@
 
   </section><!-- End Hero -->
   <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
+    {{-- <section id="features" class="features">
       <div class="container">
         <div class="section-title" data-aos="zoom-out">
           <h2>Data Total Global</h2>
@@ -160,7 +160,7 @@
           </li>
         </ul>
       </div>
-    </section><!-- End Features Section -->
+    </section><!-- End Features Section --> --}}
   <br>
   <br>
   <div class="col text-center">
@@ -213,7 +213,7 @@
       </div>
     </section><!-- End About Section -->
 
-    <section id="global" class="global">
+    {{-- <section id="global" class="global">
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">
@@ -253,7 +253,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> --}}
    
   
     <!-- ======= Cta Section ======= -->
