@@ -4,21 +4,16 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use Flynsarmy\CsvSeeder\CsvSeeder;
 
 
-class KecamatanSeeder extends CsvSeeder
+class KelurahanSeeder extends CsvSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function __construct()
+   public function __construct()
 	{
-		$this->table = 'kecamatans';
-		$this->filename = base_path().'/database/seeders/csvs/kecamatan.csv';
+		$this->table = 'kelurahans';
+		$this->filename = base_path().'/database/seeders/csvs/kelurahan.csv';
 	}
     public function run()
     {

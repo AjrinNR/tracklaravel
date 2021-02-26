@@ -48,14 +48,12 @@ class KecamatanController extends Controller
         $request->validate([
 
 
-            'kode_kec' => 'required|int|unique:kecamatans',
 
             'nama_kec' => 'required|unique:kecamatans',
 
 
         ], [
 
-            'kode_kec.required' => 'Kode is required',
 
             'nama_kec.required' => 'Kecamatan is required'
 
@@ -64,7 +62,6 @@ class KecamatanController extends Controller
 
         $kec = new Kecamatan();
         $kec->id_kota = $request->id_kota;
-        $kec->kode_kec = $request->kode_kec;
         $kec->nama_kec = $request->nama_kec;
         $kec->save();
         return redirect()->route('kecamatan.index')->with(['message' => 'Data kecamatan Berhasil Dibuat']);
@@ -106,7 +103,6 @@ class KecamatanController extends Controller
     {
         $kec = Kecamatan::findOrFail($id);
         $kec->id_kota = $request->id_kota;
-        $kec->kode_kec = $request->kode_kec;
         $kec->nama_kec = $request->nama_kec;
         $kec->save();
         return redirect()->route('kecamatan.index')->with(['message' => 'Data kecamatan Berhasil diubah']);

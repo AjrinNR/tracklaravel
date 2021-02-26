@@ -23,10 +23,6 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="">Kode Kecamatan</label>
-                                <input type="text" name="kode_kec" value="{{$kec->kode_kec}}" class="form-control"required>
-                            </div>
-                            <div class="mb-3">
                                 <label for="">Kecamatan</label>
                                 <input type="text" name="nama_kec" value="{{$kec->nama_kec}}"class="form-control"required>
                             </div>

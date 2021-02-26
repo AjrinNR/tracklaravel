@@ -22,6 +22,7 @@ class HumController extends Controller
      */
     public function index()
     {
+        //indonesia
         $jml_pos = DB::table('rws')->select('kasus2s.jumlah_positif',
                     'kasus2s.jumlah_sembuh','kasus2s.jumlah_meninggal')
                     ->join('kasus2s','rws.id','=','kasus2s.id_rw')
@@ -35,6 +36,7 @@ class HumController extends Controller
                     ->join('kasus2s','rws.id','=','kasus2s.id_rw')
                     ->sum('kasus2s.jumlah_meninggal');
 
+        // provinsi
         $tampil = DB::table('provinsis')
                   ->join('kotas','kotas.id_prov','=','provinsis.id')
                   ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
@@ -48,14 +50,22 @@ class HumController extends Controller
                   ->groupBy('nama_prov')->orderBy('nama_prov','ASC')
                   ->get();
 
-        $url= Http::get('https://api.kawalcorona.com/')->json();
-        $data = [];
-        foreach ($url as $key => $value) {
-            $ul = $value['attributes'];
-            array_push($data);
-        }
+        $tanggal = Carbon::now()->isoFormat('dddd d MMMM, Y ');
 
-        return view('frontend.home', compact('jml_pos','jml_sem','jml_men','tampil','url','ul','data'));
+        //global
+        $global= file_get_contents("https://api.kawalcorona.com/");
+        $datadunia = json_decode($global, TRUE);
+
+        $posglob = file_get_contents("https://api.kawalcorona.com/positif");
+        $getpos = json_decode($posglob, TRUE);
+
+        $semglob = file_get_contents("https://api.kawalcorona.com/sembuh");
+        $getsem = json_decode($semglob, TRUE);
+
+        $galglob = file_get_contents("https://api.kawalcorona.com/meninggal");
+        $getgal = json_decode($galglob, TRUE);
+
+        return view('frontend.home', compact('jml_pos','jml_sem','jml_men','tampil','tanggal','datadunia','getpos','getsem','getgal'));
     }
 
     /**

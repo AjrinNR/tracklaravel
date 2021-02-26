@@ -18,7 +18,6 @@ class CreateKecamatansTable extends Migration
             $table->unsignedBigInteger('id_kota');
             $table->foreign('id_kota')->references('id')
                   ->on('kotas')->onDelete('cascade');
-            $table->string('kode_kec');
             $table->string('nama_kec');
             $table->timestamps();
         });

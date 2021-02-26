@@ -28,10 +28,6 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="">Kode Kecamatan</label>
-                                <input type="text" name="kode_kec" class="form-control">
-                            </div>
-                            <div class="mb-3">
                                 <label for="">Kecamatan</label>
                                 <input type="text" name="nama_kec" class="form-control">
                             </div>

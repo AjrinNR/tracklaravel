@@ -530,6 +530,13 @@ section {
   font-family: "Poppins", sans-serif;
   color: #2a2c39;
 }
+.my-custom-scrollbar {
+  position: relative;
+  overflow: auto;
+  }
+.table-wrapper-scroll-y {
+  display: block;
+  }
 
 /*--------------------------------------------------------------
 # About

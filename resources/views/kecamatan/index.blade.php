@@ -22,8 +22,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Nomor</th>
-                                        <th scope="col" style="width:20%">Kota</th>
-                                        <th scope="col">Kode Kecamatan</th>
+                                        <th scope="col">Kota</th>
                                         <th scope="col">Kecamatan</th>
                                         <th></th>
                                         <th scope="col">Aksi</th>
@@ -39,7 +38,6 @@
                                         <tr>
                                             <td scope="row">{{$no++}}</td>
                                             <td>{{$data->kota->nama_kota}}</td>
-                                            <td>{{$data->kode_kec}}</td>
                                             <td>{{$data->nama_kec}}</td>
                                             <td></td>
                                             <td>
