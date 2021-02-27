@@ -21,6 +21,7 @@
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-outline-dark">Simpan</button>
+                                <button type="submit" class="btn btn-outline-success"><a href="{{ url()->previous() }}"> Kembali </a></button>
                             </div>
                         </form>
                     </div>

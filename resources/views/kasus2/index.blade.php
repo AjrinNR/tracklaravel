@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -57,10 +56,10 @@
                                                     <button type="submit" onclick="return confirm('Apakah anda yakin?')" class="btn btn-danger">Hapus</button>
                                                 </form>
                                             </td>
-                                            <td></td>
+                                            
                                         </tr>
                                     @endforeach
-                                </tbody>
+                                    </tbody>
                             </table>
                         </div>
                     </div>

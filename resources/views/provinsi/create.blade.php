@@ -28,8 +28,8 @@
                                 <input type="text" name="nama_prov" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-success">Simpan</button>
-                                <button type="submit" class="btn btn-danger"><a href="{{ url()->previous() }}" style="color:red;"> Kembali </a></button>
+                                <button type="submit" class="btn btn-outline-dark">Simpan</button>
+                                <button type="submit" class="btn btn-outline-success"><a href="{{ url()->previous() }}" style="color:black;"> Kembali </a></button>
                             </div>
                         </form>
                     </div>

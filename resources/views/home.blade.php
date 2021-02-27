@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Selamat datang di halaman Adiministrasi Tracking Covid-19') }}
                 </div>
             </div>
         </div>
