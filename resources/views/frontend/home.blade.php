@@ -44,7 +44,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.html">Tracking Covid</a></h1>
+        <h1><a href="{{ url('/') }}">Tracking Covid</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -213,7 +213,7 @@
       </div>
     </section><!-- End About Section -->
 
-    {{-- <section id="global" class="global">
+    <section id="global" class="global">
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">
@@ -234,26 +234,11 @@
                     <th scope="col"><center>Jumlah Meninggal</center></th>
                   </tr>
                 </thead>
-              <tbody>
-              @php
-                $no = 1;
-              @endphp
-                @foreach($datadunia as $data)
-                    <tr>
-                      <td> {{ $no++ }}</td>
-                      <td> {{ $data['attributes']['Country_Region'] }}</td>
-                      <td> {{ number_format($data['attributes']['Confirmed']) }}</td>
-                      <td>{{ number_format($data['attributes']['Recovered'])}}</td>
-                      <td>{{ number_format($data['attributes']['Deaths'])}}</td>
-                    </tr>
-                  @endforeach
-                </tbody>
-                
               </table>
             </div>
           </div>
         </div>
-      </section> --}}
+      </section>
    
   
     <!-- ======= Cta Section ======= -->

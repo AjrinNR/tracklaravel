@@ -53,25 +53,15 @@ class ApiController extends Controller
                     ->sum('kasus2s.jumlah_meninggal');
         
         $dat = [
-
+            'success'=>200,
             'data' => 'Data Kasus Indonesia ',
             'Jumlah Positif' => $jml_pos ,
             'Jumlah Sembuh' => $jml_sem ,
             'Jumlah Meninggal' => $jml_men ,
             'message'=>'Data Kasus Indonesia ditampilkan'
         ];
-        $dit=['kasus' => 'Data Kasus Indonesia per Hari Ini',
-        'Jumlah Positif per Hari ini' => $positif ,
-        'Jumlah Sembuh per Hari ini' => $sembuh ,
-        'Jumlah Meninggal per Hari ini' => $meninggal ,
-        'Tanggal'=> Carbon::now()->format('d-m-y'),];
-
-        $dut = [
-            'success'=>200,
-            'Hari Ini'=>$dit,
-            'Total' => $dat
-        ];
-        return response()->json($dut,200);
+        
+        return response()->json($dat,200);
 
         
     }

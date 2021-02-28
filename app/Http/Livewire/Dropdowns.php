@@ -17,45 +17,33 @@ class Dropdowns extends Component
         public $kecamatan;
         public $kelurahan;
         public $rw;
-        public $kasus1;
-        public $idt;
     
-        public $selectedProvinsi =null;
-        public $selectedKota =null;
-        public $selectedKecamatan =null;
-        public $selectedKelurahan =null;
-        public $selectedRw =null;
+        public $selectedProvinsi =NULL;
+        public $selectedKota =NULL;
+        public $selectedKecamatan =NULL;
+        public $selectedKelurahan =NULL;
+        public $selectedRw =NULL;
     
-        public function mount($selectedRw = null, $idt = null)
+        public function mount($selectedRw = NULL)
         {
-            $this->provinsi = Provinsi::all();
-            $this->kota = Kota::with('provinsi')->get();
-            $this->kecamatan = Kecamatan::whereHas('kota', function ($query) {
-                $query->whereId(request()->input('id_kota', 0));
-            })->pluck('nama_kec', 'id');
-            $this->kelurahan = Kelurahan::whereHas('kecamatan', function ($query) {
-                $query->whereId(request()->input('id_kec', 0));
-            })->pluck('nama_kelurahan', 'id');
-            $this->rw = Rw::whereHas('kelurahan', function ($query) {
-                $query->whereId(request()->input('id_kel', 0));
-            })->pluck('nama', 'id');
+            $this->provinsi  = Provinsi::all();
+            $this->kota      = collect();
+            $this->kecamatan = collect();
+            $this->kelurahan = collect();
+            $this->rw = collect();
             $this->selectedRw = $selectedRw;
-            $this->idt = $idt;
-            if (!is_null($idt)) {
-                $this->kasus1 = Kasus2::findOrFail($idt);
-            }
-    
-            if (!is_null($selectedRw)){
+
+            if (!is_null($selectedRw)) {
                 $rw = Rw::with('kelurahan.kecamatan.kota.provinsi')->find($selectedRw);
                 if ($rw) {
                     $this->rw = Rw::where('id_kel', $rw->id_kel)->get();
-                    $this->kelurahan = Kelurahan::where('id_kec', $rw->kelurahan->id_kec)->get();
-                    $this->kecamatan = Kecamatan::where('id_kota', $rw->kelurahan->kecamatan->id_kota)->get();
-                    $this->kota = Kota::where('id_prov', $rw->kelurahan->kecamatan->kota->id_prov)->get();
-                    $this->selectedProvinsi =$rw->kelurahan->kecamatan->kota->id_prov;
-                    $this->selectedKota = $rw->kelurahan->kecamatan->id_kota;
-                    $this->selectedKecamatan = $rw->kelurahan->id_kec;
-                    $this->selectedKelurahan = $rw->id_kel;
+                    $this->kelurahan = Kelurahan::where('id_kec',$rw->kelurahan->id_kec)->get();
+                    $this->kecamatan = Kecamatan::where('id_kota',$rw->kelurahan->kecamatan->id_kota)->get();
+                    $this->kota = Kota::where('id_prov',$rw->kelurahan->kecamatan->kota->id_prov)->get();
+                    $this->SelectedProvinsi = $rw->kelurahan->kecamatan->kota->id_provinsi;
+                    $this->SelectedKota = $rw->kelurahan->kecamatan->id_kota;
+                    $this->SelectedKecamatan = $rw->kelurahan->id_kec;
+                    $this->SelectedKelurahan = $rw->id_kel;
                 }
             }
         }
@@ -66,30 +54,23 @@ class Dropdowns extends Component
         }
         public function updatedSelectedProvinsi($provinsi)
         {
-            $this->kota = Kota::where('id_prov', $provinsi)->get();
-            $this->selectedKecamatan = NULL;
-            $this->selectedKelurahan = NULL;
-            $this->selectedRw = NULL;
+            $this->kota = Kota::where('id_prov',$provinsi)->get();
+            
         }
         public function updatedSelectedKota($kota)
         {
-            $this->kecamatan = Kecamatan::where('id_kota', $kota)->get();
-            $this->selectedKelurahan = NULL;
-            $this->selectedRw = NULL;
+            $this->kecamatan = Kecamatan::where('id_kota',$kota)->get();
         }
-    
         public function updatedSelectedKecamatan($kecamatan)
         {
-            $this->kelurahan = Kelurahan::where('id_kec', $kecamatan)->get();
-            $this->selectedRw = NULL;
+            $this->kelurahan = Kelurahan::where('id_kec',$kecamatan)->get();
         }
         public function updatedSelectedKelurahan($kelurahan)
         {
-            if (!is_null($kelurahan)) {
-                $this->rw = Rw::where('id_kel', $kelurahan)->get();
-            }
-            else {
-                $this->selectedRw = NULL;
-            }
+            $this->rw= Rw::where('id_kel',$kelurahan)->get();
+        }
+        public function updatedSelectedRw($rw)
+        {
+            $this->kasus2 = Kasus2::where('id_rw',$rw)->get();
         }
 }

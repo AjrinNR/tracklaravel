@@ -26,7 +26,7 @@
                                 <label for="">Kecamatan</label>
                                 <input type="text" name="nama_kec" value="{{$kec->nama_kec}}"class="form-control"required>
                             </div>
-                            <div class="mb-3">
+                           <div class="mb-3">
                                 <button type="submit" class="btn btn-dark">Simpan</button>
                                 <button type="submit" class="btn btn-light"><a href="{{ url()->previous() }}"> Kembali </a></button>
                             </div>

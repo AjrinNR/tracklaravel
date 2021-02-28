@@ -33,8 +33,8 @@ class Kasus2Controller extends Controller
     public function create()
     {
         
-        $rw = Rw::all();
-        return view('kasus2.create',compact('rw'));
+
+        return view('kasus2.create');
     }
 
     /**
@@ -74,7 +74,7 @@ class Kasus2Controller extends Controller
         $kasus2->jumlah_positif = $request->jumlah_positif;
         $kasus2->jumlah_sembuh = $request->jumlah_sembuh;
         $kasus2->jumlah_meninggal = $request->jumlah_meninggal;
-        $kasus2->tanggal = $request->tanggal;
+        $kasus2->tanggal = date('Y-m-d');
         $kasus2->save();
         return redirect()->route('kasus2.index')->with(['message' => 'Data Kasus Indonesia Berhasil Dibuat']);
     }
@@ -114,6 +114,7 @@ class Kasus2Controller extends Controller
     public function update(Request $request, $id)
     {
         $kasus2 = Kasus2::findOrFail($id);
+        $kasus2->id_rw = $request->id_rw;
         $kasus2->jumlah_positif = $request->jumlah_positif;
         $kasus2->jumlah_sembuh = $request->jumlah_sembuh;
         $kasus2->jumlah_meninggal = $request->jumlah_meninggal;

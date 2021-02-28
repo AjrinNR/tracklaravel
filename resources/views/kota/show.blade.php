@@ -24,7 +24,7 @@
                                 <input type="text" name="nama_kota" value="{{$kota->nama_kota}}" class="form-control" readonly>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-outline-success"><a href="{{ url()->previous() }}"> Kembali </a></button>
+                                <button type="submit" class="btn btn-light"><a href="{{ url()->previous() }}"> Kembali </a></button>
                             </div>
                         </form>
                     </div>

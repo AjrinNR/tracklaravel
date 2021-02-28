@@ -52,8 +52,7 @@
                                 <input type="date" name="tanggal" value="{{$kasus2->tanggal}}" onchange= "invoicedue(event);"  
                                 class="form-control"readonly>
                             </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-dark">Simpan</button>
+                            <div class="mb-3"></div>
                                 <button type="submit" class="btn btn-light"><a href="{{ url()->previous() }}"> Kembali </a></button>
                             </div>
                         </form>

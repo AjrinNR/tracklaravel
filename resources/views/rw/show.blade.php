@@ -19,8 +19,8 @@
                                 <label for="">RW</label>
                                 <input type="text" name="nama" value="{{$rw->nama}}" class="form-control" readonly>
                             </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-outline-success"><a href="{{ url()->previous() }}"> Kembali </a></button>
+                            <div class="mb-3"></div>
+                                <button type="submit" class="btn btn-light"><a href="{{ url()->previous() }}"> Kembali </a></button>
                             </div>
                         </form>
                     </div>
