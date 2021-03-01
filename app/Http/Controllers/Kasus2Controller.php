@@ -21,7 +21,7 @@ class Kasus2Controller extends Controller
 
     public function index()
     {
-        $kasus2 = Kasus2::with('rw')->get();
+        $kasus2 = Kasus2::with('rw.kelurahan.kecamatan.kota.provinsi')->get();
         return view('kasus2.index',compact('kasus2'));
     }
 
@@ -113,6 +113,31 @@ class Kasus2Controller extends Controller
      */
     public function update(Request $request, $id)
     {
+         $request->validate([
+
+
+            'jumlah_positif' => 'required|int',
+
+            'jumlah_sembuh' => 'required|int',
+
+            'jumlah_meninggal' => 'required|int',
+
+            'tanggal' => 'required',
+
+
+        ], [
+
+            'jumlah_positif.required' => 'Jumlah Positif is required',
+            
+            'jumlah_sembuh.required' => 'Jumlah sembuh is required',
+
+            'jumlah_meninggal.required' => 'Jumlah meninggal is required',
+
+            'tanggal.required' => 'Tanggal is required'
+
+        ]);
+
+
         $kasus2 = Kasus2::findOrFail($id);
         $kasus2->jumlah_positif = $request->jumlah_positif;
         $kasus2->jumlah_sembuh = $request->jumlah_sembuh;

@@ -11,10 +11,10 @@ class Kota extends Model
     protected $fillable =['id_prov','kode_kota','nama_kota'];
     public $timestamps = true;
 
-    public function provinsi(){
+    public function Provinsi(){
         return $this->belongsTo('App\Models\Provinsi','id_prov');
     }
-    public function kecamatan(){
+    public function Kecamatan(){
         return $this->hasMany('App\Models\Kecamatan','id_kota');
     }
 }

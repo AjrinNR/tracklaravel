@@ -124,7 +124,7 @@
 
   </section><!-- End Hero -->
   <!-- ======= Features Section ======= -->
-    {{-- <section id="features" class="features">
+    <section id="features" class="features">
       <div class="container">
         <div class="section-title" data-aos="zoom-out">
           <h2>Data Total Global</h2>
@@ -160,7 +160,7 @@
           </li>
         </ul>
       </div>
-    </section><!-- End Features Section --> --}}
+    </section><!-- End Features Section -->
   <br>
   <br>
   <div class="col text-center">
@@ -234,6 +234,20 @@
                     <th scope="col"><center>Jumlah Meninggal</center></th>
                   </tr>
                 </thead>
+                <tbody>
+              @php
+                $no = 1;
+              @endphp
+              @foreach($datadunia as $data)
+                  <tr>
+                    <th scope="row">{{$no++}}</th>
+                      <td>{{$data['attributes']['Country_Region']}}</td>
+                      <td>{{number_format($data['attributes']['Confirmed'])}}</td>
+                      <td>{{number_format($data['attributes']['Recovered'])}}</td>
+                      <td>{{number_format($data['attributes']['Deaths'])}}</td>
+                  </tr>
+                @endforeach         
+                </tbody>
               </table>
             </div>
           </div>

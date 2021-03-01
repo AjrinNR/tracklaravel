@@ -35,6 +35,14 @@
                                 <label for="">Rw</label>
                                 <input type="text" name="nama" value="{{$kasus2->rw->nama}}" class="form-control"readonly>
                             </div>
+                            {{-- <div class="mb-3">
+                                 @livewire('dropdowns', [
+                                    'selectedRw'=> $kasus2->id_rw, 
+                                    'selectedKelurahan'=> $kasus2->rw->id_kel,
+                                    'selectedKecamatan'=> $kasus2->rw->kelurahan->id_kec,
+                                    'selectedKota'=> $kasus2->rw->kelurahan->kecamatan->id_kota,
+                                    'selectedProvinsi'=> $kasus2->rw->kelurahan->kecamatan->kota->id_prov])
+                            </div> --}}
                             <div class="mb-3">
                                 <label for="">Jumlah Positif</label>
                                 <input type="text" name="jumlah_positif" value="{{$kasus2->jumlah_positif}}" class="form-control">

@@ -11,7 +11,7 @@ class Provinsi extends Model
     protected $fillable =['kode_prov','nama_prov'];
     public $timestamps = true;
 
-    public function kota(){
+    public function Kota(){
         return $this->hasMany('App\Models\Kota','id_prov');
     }
 }

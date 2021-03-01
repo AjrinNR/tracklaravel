@@ -12,10 +12,10 @@ class Rw extends Model
     protected $fillable =['id_kel','nama'];
     public $timestamps = true;
 
-    public function kelurahan(){
+    public function Kelurahan(){
         return $this->belongsTo('App\Models\Kelurahan','id_kel');
     }
-    public function kasus2(){
+    public function Kasus2(){
         return $this->hasMany('App\Models\Kasus2','id_rw');
     }
 }

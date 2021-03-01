@@ -53,19 +53,19 @@ class HumController extends Controller
         $tanggal = Carbon::now()->isoFormat('dddd d MMMM, Y ');
 
         //global
-        // $global = file_get_contents("https://api.kawalcorona.com/");
-        // $datadunia = json_decode($global, TRUE);
+        $global = file_get_contents("https://api.kawalcorona.com/");
+        $datadunia = json_decode($global, TRUE);
 
-        // $posglob = file_get_contents("https://api.kawalcorona.com/positif");
-        // $getpos = json_decode($posglob, TRUE);
+        $posglob = file_get_contents("https://api.kawalcorona.com/positif");
+        $getpos = json_decode($posglob, TRUE);
 
-        // $semglob = file_get_contents("https://api.kawalcorona.com/sembuh");
-        // $getsem = json_decode($semglob, TRUE);
+        $semglob = file_get_contents("https://api.kawalcorona.com/sembuh");
+        $getsem = json_decode($semglob, TRUE);
 
-        // $galglob = file_get_contents("https://api.kawalcorona.com/meninggal");
-        // $getgal = json_decode($galglob, TRUE);
+        $galglob = file_get_contents("https://api.kawalcorona.com/meninggal");
+        $getgal = json_decode($galglob, TRUE);
 
-        return view('frontend.home', compact('jml_pos','jml_sem','jml_men','tampil','tanggal'));
+        return view('frontend.home', compact('jml_pos','jml_sem','jml_men','tampil','tanggal','datadunia','getpos','getsem','getgal'));
     }
 
     /**

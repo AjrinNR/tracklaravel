@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Kecamatan extends Model
 {
     use HasFactory;
-    protected $fillable =['id_kota','kode_kec','nama_kec'];
+    protected $fillable =['id_kota','nama_kec'];
     public $timestamps = true;
 
-    public function kota(){
+    public function Kota(){
         return $this->belongsTo('App\Models\Kota','id_kota');
     }
-    public function kelurahan(){
+    public function Kelurahan(){
         return $this->hasMany('App\Models\Kelurahan','id_kec');
     } 
 }
